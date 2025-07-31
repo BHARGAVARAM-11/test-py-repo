@@ -1,0 +1,21 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: student_mysql      # Mysql container name -- our wish
+    environment:            # Environment variables for MySQL   
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: student_db
+    ports:                              # Expose MySQL port -- can be seen in the mysql workbench
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql  #  Persist MySQL data
+
+  app:
+    build: .                            # Buil
+    container_name: student_app      
+    depends_on:               # App depends on db service 
+      - db
+volumes:                          # Define named volumes
+  mysql_data:
+
+
