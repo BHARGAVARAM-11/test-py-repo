@@ -2,10 +2,11 @@ import mysql.connector
 
 # Connect to MySQL
 conn = mysql.connector.connect(
-    host="student_mysql",
-    user="root",
-    password="rootpass",
-    database="student_db"
+    host="YOUR_RENDER_MYSQL_HOST",
+    user="YOUR_RENDER_DB_USER",
+    password="YOUR_RENDER_DB_PASSWORD",
+    database="YOUR_RENDER_DB_NAME"
+
 )
 
 cursor = conn.cursor()
